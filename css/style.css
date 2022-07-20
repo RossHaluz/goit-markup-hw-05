@@ -97,14 +97,26 @@ img {
 .main-links .iteam:not(:last-child) {
   margin-right: 50px;
 }
-.main-links .iteam a {
+.main-links .iteam .main-header-link {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
 }
 
-.main-links .current {
+.main-header-link.header-link-current {
+  position: relative;
   color: var(--hover-text-color);
+}
+.main-header-link.header-link-current::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  background-color: #2196f3;
+  border-radius: 2px;
+  width: 100%;
+  height: 4px;
 }
 .main-links a:hover,
 .main-links a:focus {
