@@ -343,7 +343,7 @@ img {
   fill: var(--color-icons);
   border-radius: 4px;
   padding: 16px;
-  transition: fill var(--transition), border-color var(--transition),
+  transition: fill var(--transition), border var(--transition),
     filter var(--transition);
 }
 .partners-icon {
@@ -353,7 +353,7 @@ img {
 .partners-link:hover,
 .partners-link:focus {
   fill: var(--hover-text-color);
-  border-color: var(--hover-text-color);
+  border: 1px solid var(--hover-text-color);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
@@ -371,19 +371,17 @@ img {
 }
 .address-place {
   color: var(--white-text-color);
-  transition: color var(--transition);
-}
-.footer-address-item .link {
-  transition: color var(--transition);
 }
 .footer-address {
   font-style: inherit;
   color: rgba(255, 255, 255, 0.6);
 }
-.address-place:hover,
-.address-place:focus,
-.footer-address-item .link:hover,
-.footer-address-item .link:focus {
+.footer-address-item {
+  transition: color var(--transition);
+}
+
+.footer-address-item:hover,
+.footer-address-item:focus {
   color: var(--hover-text-color);
 }
 .footer-address-list {
@@ -504,7 +502,8 @@ img {
   color: var(--white-text-color);
   min-width: 322px;
 }
-.portfolio-link:hover .portfolio-thumb-text {
+.portfolio-link:hover .portfolio-thumb-text,
+.portfolio-link:focus .portfolio-thumb-text {
   transform: translateY(0%);
 }
 /* Overlay */
@@ -516,12 +515,15 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity var(--transition);
+  transition: opacity var(--transition), visibility var(--transition);
 }
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
 }
 .modal {
   position: absolute;
